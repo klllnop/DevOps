@@ -3,9 +3,9 @@
   tasks:
   - name: Criar novo utilizador
     user:
-      name: newuser
+      name: novoutilizador
       password: $6$rounds=656000$saltstringsaltstring$encryptedpasswordstring
-      home: /home/newuser
-      group: newgroup
+      home: /home/novoutilizador
+      group: nomegrupo
       shell: /bin/bash
       state: present
