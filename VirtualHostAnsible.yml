@@ -22,3 +22,7 @@
       service:
         name: apache2
         state: reloaded
+
+#Para executar este ficheiro de configuracao devemos executar o comando a seguir:
+# ansible-playbook virtualhost.yml -e "virtual_host_name=example.com"
+#Nota: example.com deve ser substituido pelo dominio que prentendemos
