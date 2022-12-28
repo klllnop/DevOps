@@ -1,0 +1,11 @@
+---
+- hosts: all
+  tasks:
+  - name: Criar novo utilizador
+    user:
+      name: newuser
+      password: $6$rounds=656000$saltstringsaltstring$encryptedpasswordstring
+      home: /home/newuser
+      group: newgroup
+      shell: /bin/bash
+      state: present
