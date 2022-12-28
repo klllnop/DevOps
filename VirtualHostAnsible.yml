@@ -1,0 +1,24 @@
+---
+- name: Create virtual host
+  hosts: all
+  become: yes
+  tasks:
+    - name: Instalar Servidor Web Apache
+      apt:
+        name: apache2
+        state: present
+
+    - name: Criar ficheiro de configuracao para o virtual host
+      template:
+        src: virtualhost.j2
+        dest: /etc/apache2/sites-available/{{ virtual_host_name }}.conf
+
+    - name: Ativar virtual host
+      command: a2ensite {{ virtual_host_name }}.conf
+      args:
+        creates: /etc/apache2/sites-enabled/{{ virtual_host_name }}.conf
+
+    - name: Reiniciar o servico do Apache2
+      service:
+        name: apache2
+        state: reloaded
